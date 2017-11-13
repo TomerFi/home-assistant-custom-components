@@ -18,7 +18,7 @@ The component can create multiple sensors for multiple cities around the world, 
 To use this component in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
-# Example configuration.yaml entry
+# Example configuration.yaml
 
 sensor:
   - platform: shabbat_times
@@ -35,7 +35,7 @@ Configuration variables:
 Working Configuration Example:
 
 ```yaml
-# Example configuration.yaml entry
+# Example configuration.yaml
 
 sensor:
   - platform: shabbat_times
