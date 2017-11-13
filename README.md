@@ -52,7 +52,7 @@ Each sensor will have its own set of attributes:
 - *shabbat_end*
 
 Which will be calulated based on configration optional values **candle_lighting_minutes_before_sunset** and **havdalah_minutes_after_sundown**.
-These attributes are available to use within templates like so:
+These attributes are available for use within templates like so:
 - *{{ states.sensor.shabbat_times_il_haifa.attributes.shabbat_start }}* will show the shabbat start date and time in Haifa.
 - *{{ states.sensor.shabbat_times_il_rishon_lezion.attributes.shabbat_end }}* will show the shabbat end date and time in Rishon Lezion.
 
