@@ -56,6 +56,7 @@ These attributes are available to use within templates like so:
 - *{{ states.sensor.shabbat_times_il_rishon_lezion.attributes.shabbat_end }}* will show the shabbat end date and time in Rishon Lezion.
 
 Sensor States:
+
 The created sensors has 4 possible states:
 - *Awaiting Update*: the sensor hasn't been updated yet.
 - *Working*: the sensor is being updated at this moment.
