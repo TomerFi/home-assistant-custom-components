@@ -5,7 +5,7 @@ Custom components I made for use with [home-assistant hass.io](http://www.home-a
 ## Shabbat Times Custom Sensor
 
 This componet acts as a new platform called *shabbat_times* for the *sensor* domain.
-The component works in a simillar manner as the *rest* type sensor, it send and api request towards [Hebcal's Shabbat Times API](https://www.hebcal.com/home/197/shabbat-times-rest-api) and retrievs the **next** or **current** shabbat start and end date time and sets them as attributes within a created sensor.</br>
+The component works in a simillar manner as the *rest* type sensor, it send an api request towards [Hebcal's Shabbat Times API](https://www.hebcal.com/home/197/shabbat-times-rest-api) and retrievs the **next** or **current** shabbat start and end date time and sets them as attributes within a created sensor.</br>
 The component can create multiple sensors for multiple cities around the world, the selected city is identified by its geoname which can selected [here](https://github.com/hebcal/dotcom/blob/master/hebcal.com/dist/cities2.txt).
 
 ### Installation
