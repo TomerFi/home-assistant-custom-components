@@ -50,6 +50,7 @@ This configuration will create two sensors:
 Each sensor will have its own set of attributes:
 - *shabbat_start*
 - *shabbat_end*
+
 Which will be calulated based on configration optional values **candle_lighting_minutes_before_sunset** and **havdalah_minutes_after_sundown**.
 These attributes are available to use within templates like so:
 - *{{ states.sensor.shabbat_times_il_haifa.attributes.shabbat_start }}* will show the shabbat start date and time in Haifa.
@@ -62,6 +63,7 @@ The created sensors has 4 possible states:
 - *Working*: the sensor is being updated at this moment.
 - *Error...*: the api has encountered an error.
 - *Updated*: the sensor has finished updating.
-Any state besides *Updated* is rarely used and will probably add an error message in home assistant's logs. If so, please check the log and try to fix the error. If a a code modification is required please create a new issue.
+
+Any state besides *Updated* is rarely used and will probably add an error message in home assistant's logs. If so, please check the log and try to correct the error if its source is in the configration parameters. If a code modification is required please create a new issue.
 
 **Special Note**: The sensors will allways show the date and time for the next shabbat, unless the shabbat is now, and therefore the sensors will show the current shabbat date and time.
