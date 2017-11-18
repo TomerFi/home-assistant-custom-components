@@ -29,9 +29,6 @@ PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
     vol.Optional(CONF_SCAN_INTERVAL, default=SCAN_INTERVAL): cv.time_period
 })
 
-TRACKABLE_DOMAINS = ['sensor']
-
-
 def setup_platform(hass, config, add_devices, discovery_info=None):
     havdalah = config.get(HAVDALAH_MINUTES)
     candle_light = config.get(CANDLE_LIGHT_MINUTES)
@@ -77,7 +74,7 @@ class ShabbatTimes(Entity):
         self.shabbat_start = None
         self._shabbat_end = None
         today = datetime.date.today()
-        if (today.weekday == 5):
+        if (today.weekday() == 5):
             friday = today + datetime.timedelta(-1)
         else:
             friday = today + datetime.timedelta((4-today.weekday()) % 7)
