@@ -15,8 +15,8 @@ GEONAMES = 'geonames'
 HAVDALAH_MINUTES = 'havdalah_minutes_after_sundown'
 CANDLE_LIGHT_MINUTES = 'candle_lighting_minutes_before_sunset'
 
-HAVDALAH_DEFAULT = 36
-CANDLE_LIGHT_DEFAULT = 18
+HAVDALAH_DEFAULT = 42
+CANDLE_LIGHT_DEFAULT = 30
 SCAN_INTERVAL = datetime.timedelta(seconds=60)
 
 SHABBAT_START = 'shabbat_start'
