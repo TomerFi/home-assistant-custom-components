@@ -28,8 +28,8 @@ sensor:
 Configuration variables:
 
 - **geonames** (*Required*): A valid geoname selected [here](https://github.com/hebcal/dotcom/blob/master/hebcal.com/dist/cities2.txt), multiple geonames seperated by a comma is allowed.
-- **candle_lighting_minutes_before_sunset** (*Optional*): Minutes to subtract from the sunset time for calculation of the candle lighting time. (default = 18)
-- **havdalah_minutes_after_sundown** (*Optional*): Minutes to add to the sundown time for calculation of the shabbat end time. (default = 36)
+- **candle_lighting_minutes_before_sunset** (*Optional*): Minutes to subtract from the sunset time for calculation of the candle lighting time. (default = 30)
+- **havdalah_minutes_after_sundown** (*Optional*): Minutes to add to the sundown time for calculation of the shabbat end time. (default = 42)
 - **scan_interval** (*Optional*): Seconds between updates. (default = 60)
 
 Working Configuration Example:
