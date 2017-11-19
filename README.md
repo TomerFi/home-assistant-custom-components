@@ -10,7 +10,7 @@ The component can create multiple sensors for multiple cities around the world, 
 
 ### Installation
 
-- Copy file [`sensor/shabbat_times.py`](sensor/shabbat_times.py) to your `ha_config_dir/custom_components/sensor` directory.
+- Copy file [`sensor/shabbat_times.py`](custom_components/sensor/shabbat_times.py) to your `ha_config_dir/custom_components/sensor` directory.
 - Configure with config below.
 - Restart Home-Assistant.
 
