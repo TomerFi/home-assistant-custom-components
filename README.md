@@ -91,21 +91,21 @@ The type of reminder is decided based on the configuration variables.</br>
 **The following configuration variables are required for any reminder, use only the following for configuring a daily reminder:**
 - **name** (*Required*): Any string representing the name of the reminder.
 - **hour** (*Required*): A **positive integer between 0 and 23** represnting the hour of the notification arrival.
-- **minute** (*Optional*): A **positive integer between 0 and 59** represnting the minute of the notification arrival (default = 0).
+- **minute** (*Optional*): A **positive integer between 0 and 59** represnting the minute of the notification arrival. (default = 0)
 - **message** (*Required*): Any string representing the message for the notification, the message will concatenated with a predefined text represnting the number of days to the event.
 - **notifier** (*Required*): A valid *notifier name* to be used as the recipient of the notification.
 
 **The following configuration variable is optional, add the following to all of previous for configuring a monthly reminder:**
-- **day** (*Optional*): A **positive integer between 1 and 31** represnting the day for a monthly reminder (default = None).
+- **day** (*Optional*): A **positive integer between 1 and 31** represnting the day for a monthly reminder. (default = None)
 
 **The following configuration variable is optional, add the following to all of previous for configuring a yearly reminder:**
-- **month** (*Optional*): A **positive integer between 1 and 12** represnting the month for a yearly reminder (default = None).
+- **month** (*Optional*): A **positive integer between 1 and 12** represnting the month for a yearly reminder. (default = None)
 
 **The following configuration variable is optional, add the following to all of previous for configuring a one time reminder:**
-- **year** (*Optional*):  A **positive 4 digits integer** represnting the year for a one time reminder (default = None).
+- **year** (*Optional*):  A **positive 4 digits integer** represnting the year for a one time reminder. (default = None)
 
 **The following configuration variable is optional and eligible when configuring a monthly, yearly or one time reminders:**
-- **days_notice** (*Optional*): A **postive integer** represnting the number of days before the date in which the notification will be send (default = 0).
+- **days_notice** (*Optional*): A **postive integer** represnting the number of days before the date in which the notification will be send. (default = 0)
 
 Working Configuration Example:
 
@@ -153,7 +153,7 @@ date_notifier:
     message: "daily test"
     notifier: "ios_tomers_iphone6s"
 ```
-Based on this configuration, I've received four notifications withing four minutes, you can see the received notifications [here]().
+Based on this configuration, I've received four notifications withing four minutes, you can see the received notifications [here](sample_pics/date_notifier_notifications.jpg).
 
 **Entity States**
 Each reminder will create it's own entity with the configuration variables as state attributes, there are five potential states:
