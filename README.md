@@ -71,7 +71,7 @@ Any state besides *Updated* is rarely used and will probably add an error messag
 ## Date Notifier Custom Component
 
 This component is called *date_notifier* and it is dependent on the **notify component**, it's used for creating reminders based on dates and times.</br>
-Before using this component, please configure notification using the [**notify component**](https://home-assistant.io/components/notify/) instructions.
+Before using this component, please configure notifications using the [**notify component**](https://home-assistant.io/components/notify/) instructions.
 The **Date Notifier Component** supports four types of reminders:
 - Yearly recurring reminder
 - Monthly recurring reminder
