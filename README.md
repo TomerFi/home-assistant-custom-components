@@ -70,7 +70,7 @@ Any state besides *Updated* is rarely used and will probably add an error messag
 
 ## Date Notifier Custom Component
 
-This component is called *date_notifier* and it is dependent on the *notify* component and it is used to create reminders based on dates and times.</br>
+This component is called *date_notifier* and it is dependent on the **notify component**, it's used for creating reminders based on dates and times.</br>
 Before using this component, please configure notification using the [**notify component**](https://home-assistant.io/components/notify/) instructions.
 The **Date Notifier Component** supports four types of reminders:
 - Yearly recurring reminder
@@ -164,6 +164,6 @@ Each reminder will create it's own entity with the configuration variables as st
 - *past_due*: for past one time reminders.
 
 **Special Notes**:
-- This component is dependent on the **notify** component, Bbefore using this component, please configure notification using the [**notify component**](https://home-assistant.io/components/notify/) instructions.
+- This component is dependent on the **notify component**, before using this component, please configure notification using the [**notify component**](https://home-assistant.io/components/notify/) instructions.
 - In future releases I plan on adding another configure variable of boolean type called *countdown*, when true reminders with a *days_notice* variable bigger then 0, will launch a "countdown" everyday starting with the *days_notice* limit and ending at the day of the event.
 - In future releases I plan on adding a service for relaoding the configuration, for now, when editing any active reminders or adding new ones, a Home Assistant restart is required.
