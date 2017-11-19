@@ -88,23 +88,23 @@ The **Date Notifier Component** supports four types of reminders:
 There are four type of reminders, yearly, monthly, daily and one time reminders.</br>
 The type of reminder is decided based on the configuration variables.</br>
 
-**The following configuration variables are required for any reminder, use only the following for configuring a daily reminder:
+**The following configuration variables are required for any reminder, use only the following for configuring a daily reminder:**
 - **name** (*Required*): Any string representing the name of the reminder.
 - **hour** (*Required*): A **positive integer between 0 and 23** represnting the hour of the notification arrival.
 - **minute** (*Optional*): A **positive integer between 0 and 59** represnting the minute of the notification arrival (default = 0).
 - **message** (*Required*): Any string representing the message for the notification, the message will concatenated with a predefined text represnting the number of days to the event.
 - **notifier** (*Required*): A valid *notifier name* to be used as the recipient of the notification.
 
-**The following configuration variable is optional, add the following to all of previous for configuring a monthly reminder:
+**The following configuration variable is optional, add the following to all of previous for configuring a monthly reminder:**
 - **day** (*Optional*): A **positive integer between 1 and 31** represnting the day for a monthly reminder (default = None).
 
-**The following configuration variable is optional, add the following to all of previous for configuring a yearly reminder:
+**The following configuration variable is optional, add the following to all of previous for configuring a yearly reminder:**
 - **month** (*Optional*): A **positive integer between 1 and 12** represnting the month for a yearly reminder (default = None).
 
-**The following configuration variable is optional, add the following to all of previous for configuring a one time reminder:
+**The following configuration variable is optional, add the following to all of previous for configuring a one time reminder:**
 - **year** (*Optional*):  A **positive 4 digits integer** represnting the year for a one time reminder (default = None).
 
-**The following configuration variable is optional and eligible when configuring a monthly, yearly or one time reminders:
+**The following configuration variable is optional and eligible when configuring a monthly, yearly or one time reminders:**
 - **days_notice** (*Optional*): A **postive integer** represnting the number of days before the date in which the notification will be send (default = 0).
 
 Working Configuration Example:
