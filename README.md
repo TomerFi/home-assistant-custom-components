@@ -153,7 +153,7 @@ date_notifier:
     message: "daily test"
     notifier: "ios_tomers_iphone6s"
 ```
-Based on this configuration, I've received four notifications withing four minutes, you can see the received notifications [here](sample_pics/date_notifier_notifications.jpg).
+Based on this configuration, I've received four notifications withing four minutes, you can see the received notifications [here](sample_pics/date_notifier_notifications.jpg) (the picture was taken on date 2017-11-19 at 21:28).
 
 **Entity States**
 Each reminder will create it's own entity with the configuration variables as state attributes, there are five potential states:
