@@ -96,17 +96,12 @@ def async_setup(hass, config):
     @asyncio.coroutine
     def async_scan_dates_service(call):
         for entity_id in component.entities:
-            entity = component.entities[entity_id]
-
-            if entity:
-                target_notifiers = [entity]
-                tasks = [notifier.async_scan_dates() for notifier in target_notifiers]
-                if tasks:
-                    yield from asyncio.wait(tasks, loop=hass.loop)
-                else:
-                    _LOGGER.error('no tasks initialized for ' + entity_id)
+            target_notifiers = [entity_id]
+            tasks = [notifier.async_scan_dates() for notifier in target_notifiers]
+            if tasks:
+                yield from asyncio.wait(tasks, loop=hass.loop)
             else:
-                _LOGGER.error('no entity found with the name ' + entity_id)
+                _LOGGER.error('no tasks initialized for ' + entity_id)
 
     async_track_time_interval(hass, async_scan_dates_service, INTERVAL)
 
