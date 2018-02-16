@@ -82,7 +82,7 @@ class ShabbatTimes(Entity):
         saturday = friday + datetime.timedelta(+1)
 
         year = str(friday.year)
-        month = str(friday.month)
+        month = ("0" + str(friday.month))[-2:]
 
         hebcal_url = "http://www.hebcal.com/hebcal/?v=1&cfg=json&maj=off&min=off&mod=off&nx=off&year=" + year + "&month=" + month + "&ss=off&mf=off&c=on&geo=city&city=" + self._city + "&m=" + str(self._havdalah) + "&s=off&i=off&b=" + str(self._candle_light)
         hebcal_response = requests.get(hebcal_url)
