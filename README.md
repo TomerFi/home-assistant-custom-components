@@ -176,7 +176,7 @@ This component acts as a new platform called *switcher_heater* for the *switch* 
 ### Requirements
 - **Home Assistant version 0.62 or higher** (tested with Hassio 0.63.2 and Hassabian 0.63.3).
 - Your switcher device needs to have a **Static IP Address** reserved by your router.
-- Please follow [Shai's instructions](https://github.com/NightRang3r/Switcher-V2-Python) and **gather the following information**:
+- Please follow [Shai's instructions](https://github.com/NightRang3r/Switcher-V2-Python#requirements) and **gather the following information**:
   - phone_id
   - device_id
   - device_pass
