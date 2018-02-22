@@ -197,7 +197,7 @@ switch:
   - platform: switcher_heater
     switches:
       device1:
-        friendly_name: "switcher_boiler"
+        friendly_name: "heater_switch"
         local_ip_addr: 'XXX.XXX.XXX.XXX'
         phone_id: 'XXXX'
         device_id: 'XXXXXX'
