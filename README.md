@@ -167,3 +167,49 @@ Each reminder will create it's own entity with the configuration variables as st
 - This component is dependent on the **notify component**, before using this component, please configure notification using the [**notify component**](https://home-assistant.io/components/notify/) instructions.
 - In future releases I plan on adding another configure variable of boolean type called *countdown*, when true reminders with a *days_notice* variable bigger then 0, will launch a "countdown" everyday starting with the *days_notice* limit and ending at the day of the event.
 - In future releases I plan on adding a service for relaoding the configuration, for now, when editing any active reminders or adding new ones, a Home Assistant restart is required.
+
+## Switcher V2 Bolier
+
+This custom component is based on the awesome script made available by **NightRang3r**, you can find the original script and the instruction on how to retrieve your device's information in Shai's repository [here](https://github.com/NightRang3r/Switcher-V2-Python).</br>
+This component acts as a new platform called *switcher_heater* for the *switch* domain, the end result should look something like [this](/sample_pics/switcher.jpg).
+
+### Requirements
+- **Home Assistant version 0.62 or higher** (tested with Hassio 0.63.2 and Hassabian 0.63.3).
+- Your switcher device needs to have a **Static IP Address** reserved by your router.
+- Please follow [Shai's instructions](https://github.com/NightRang3r/Switcher-V2-Python) and **gather the following information**:
+  - phone_id
+  - device_id
+  - device_pass
+
+### Installation
+
+- Copy file [`custom_components/switch/switcher_heater.py`](custom_components/switch/switcher_heater.py) to your `ha_config_dir/custom_components/switch` directory.
+- Configure like instructed in the Usage section below.
+- Restart Home-Assistant.
+
+## Usage
+To use this component in your installation, add the following to your `configuration.yaml` file, supports multiple devices:
+
+```yaml
+# Example configuration.yaml
+
+switch:
+  - platform: switcher_heater
+    switches:
+      device1:
+        friendly_name: "switcher_boiler"
+        local_ip_addr: 'XXX.XXX.XXX.XXX'
+        phone_id: 'XXXX'
+        device_id: 'XXXXXX'
+        device_password: 'XXXXXXXX'
+```
+
+Configuration variables:
+
+- **friendly_name** (*Required*): A string representing the friendly name of your device.
+- **local_ip_addr** (*Required*): The IP Address assigned to your device by your router. A static address is preferable.</br>
+The following was retrieved based on NightRang3r original instructions:
+- **phone_id** (*Required*): Your phone id.
+- **device_id** (*Required*): Your device id.
+- **device_password** (*Required*): Your device password.</br>
+The end result should look something like [this](/sample_pics/switcher.jpg).
