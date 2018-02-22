@@ -208,8 +208,10 @@ Configuration variables:
 
 - **friendly_name** (*Required*): A string representing the friendly name of your device.
 - **local_ip_addr** (*Required*): The IP Address assigned to your device by your router. A static address is preferable.</br>
+
 The following was retrieved based on NightRang3r original instructions:
 - **phone_id** (*Required*): Your phone id.
 - **device_id** (*Required*): Your device id.
 - **device_password** (*Required*): Your device password.</br>
+
 The end result should look something like [this](/sample_pics/switcher.jpg).
