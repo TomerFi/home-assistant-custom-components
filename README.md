@@ -227,12 +227,12 @@ This component acts as a new platform called *broadlink_s1c* for the *sensor* do
 
 ### Installation
 
-- Copy the file [`custom_components/sensor/switcher_heater.py`](custom_components/sensor/broadlink_s1c.py) to your `ha_config_dir/custom_components/sensor` directory.
+- Copy the file [`custom_components/sensor/broadlink_s1c.py`](custom_components/sensor/broadlink_s1c.py) to your `ha_config_dir/custom_components/sensor` directory.
 - Configure like instructed in the Usage section below.
 - Restart Home-Assistant.
 
 ## Usage
-To use this component in your installation, add the following to your `configuration.yaml` file, supports multiple devices:
+To use this component in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml
