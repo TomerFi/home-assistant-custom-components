@@ -215,3 +215,57 @@ The following was retrieved based on NightRang3r original instructions:
 - **device_password** (*Required*): Your device password.</br>
 
 The end result should look something like [this](/sample_pics/switcher.jpg).
+
+## Broadlink S1C Alarm kit
+
+This custom component is based on the script made available by [**NightRang3r**](https://community.home-assistant.io/t/broadlink-s1c-kit-sensors-in-ha-using-python-and-mqtt/19886), and the [python-broadlink repository](https://github.com/mjg59/python-broadlink).</br>
+This component acts as a new platform called *broadlink_s1c* for the *sensor* domain.
+
+### Requirements
+- **Home Assistant version 0.62 or higher** (tested with Hassio 0.63.3).
+- Your S1C Hub needs to have a **Static IP Address** reserved by your router.
+
+### Installation
+
+- Copy the file [`custom_components/sensor/switcher_heater.py`](custom_components/sensor/broadlink_s1c.py) to your `ha_config_dir/custom_components/sensor` directory.
+- Configure like instructed in the Usage section below.
+- Restart Home-Assistant.
+
+## Usage
+To use this component in your installation, add the following to your `configuration.yaml` file, supports multiple devices:
+
+```yaml
+# Example configuration.yaml
+
+sensor:
+  - platform: broadlink_s1c
+    ip_address: "xxx.xxx.xxx.xxx"
+    mac: "xx:xx:xx:xx:xx:xx"
+```
+
+Configuration variables:
+
+- **ip_address** (*Required*): The IP Address assigned to your device by your router. A static address is preferable.</br>
+- **mac** (*Required*): The MAC Address of your S1C Hub.</br>
+
+## Sensor Available States
+### All Sensors
+- `tampered`
+- `unknown` - Inherited from *homeassistant.const.STATE_UNKNOWN*
+### Door Sensor
+- `open` - Inherited from *homeassistant.const.STATE_OPEN*
+- `closed` - Inherited from *homeassistant.const.STATE_CLOSED*
+### Motion Detection Sensor
+- `no_motion`
+- `motion_detected`
+### Key Fob Sensor
+- `disarmed` - Inherited from *homeassistant.const.STATE_ALARM_DISARMED*
+- `armed_away` - Inherited from *homeassistant.const.STATE_ALARM_ARMED_AWAY*
+- `armed_home` - Inherited from *homeassistant.const.STATE_ALARM_ARMED_HOME*
+- `sos`
+
+## Special Notes
+- Initial configuration of the sensor in the Broadlink App is required.
+- The platform discovers the sensors upon loading, therefore if you add another sensor, restart Home Assistant and the new sensors will be added to ha.
+- The entity name of each sensors is constructed from the original sensor name from the Broadlink App concatenated with the platform name. Spaces and dashes will be replaced with underscores.</br>
+  For instance, if you sensor is name *Bedroom Door* the entity name will be *broadlink_s1c_bedroom_door_sensor*, and to reference  it you will call *sensor.broadlink_s1c_bedroom_door_sensor*
