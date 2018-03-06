@@ -274,7 +274,7 @@ class WatchSensors(threading.Thread):
         """max exceptions allowed in loop before exiting"""
         max_exceptions_before_stop = 10
         """max minutes to remmember the last excption"""
-        max_minutes_from_last_exception = 5
+        max_minutes_from_last_exception = 20
         
         current_dt = now()
         if not (self._last_exception_dt is None):
