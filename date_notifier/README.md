@@ -3,6 +3,8 @@
 **Domain Name** : `date_notifier`</br>
 **Component Script** : [`custom_components/date_notifier.py`](custom_components/date_notifier.py)</br>
 
+[Community Discussion](https://community.home-assistant.io/t/custom-component-for-creating-yearly-monthly-daily-and-one-time-reminders/33097)</br>
+
 #### Component Description
 This component is called *date_notifier* and it is dependent on the **notify component**, it's used for creating reminders based on dates and times.</br>
 Before using this component, please configure notifications using the [**notify component**](https://home-assistant.io/components/notify/) instructions.</br>
