@@ -39,9 +39,7 @@ from homeassistant.const import (CONF_IP_ADDRESS, CONF_MAC, CONF_TIMEOUT, STATE_
 from homeassistant.util.dt import now
 
 """current broadlink moudle in ha is of version 0.5 which doesn't supports s1c hubs, usuing version 0.6 from github"""
-REQUIREMENTS = [
-    'https://github.com/mjg59/python-broadlink/archive/master.zip'
-    'master.zip#broadlink==0.6']
+REQUIREMENTS = ['https://github.com/mjg59/python-broadlink/archive/master.zip#broadlink==0.6']
 
 _LOGGER = logging.getLogger(__name__)
 
