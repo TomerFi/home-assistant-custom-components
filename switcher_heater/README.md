@@ -4,6 +4,8 @@
 **Domain Name** : `sensor`</br>
 **Component Script** : [`custom_components/switch/switcher_heater.py`](custom_components/switch/switcher_heater.py)</br>
 
+[Community Discussion](https://community.home-assistant.io/t/switcher-v2-boiler-support-in-home-assistant/44318)</br>
+
 #### Component Description
 This custom component is based on the awesome script made available by **NightRang3r**, you can find the original script and the instruction on how to retrieve your device's information in Shai's repository [here](https://github.com/NightRang3r/Switcher-V2-Python).</br>
 
