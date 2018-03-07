@@ -4,7 +4,7 @@
 **Domain Name** : `sensor`</br>
 **Component Script** : [`custom_components/switch/switcher_heater.py`](custom_components/switch/switcher_heater.py)</br>
 
-###### Component Description
+#### Component Description
 This custom component is based on the awesome script made available by **NightRang3r**, you can find the original script and the instruction on how to retrieve your device's information in Shai's repository [here](https://github.com/NightRang3r/Switcher-V2-Python).</br>
 
 **Table Of Contents**
