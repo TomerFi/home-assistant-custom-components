@@ -4,7 +4,7 @@
 **Domain Name** : `sensor`</br>
 **Component Script** : [`custom_components/sensor/shabbat_times.py`](custom_components/sensor/shabbat_times.py)</br>
 
-###### Component Description
+#### Component Description
 The component works in a similar manner as the *rest* type sensor, it send an api request towards [Hebcal's Shabbat Times API](https://www.hebcal.com/home/197/shabbat-times-rest-api) and retrieves the **next** or **current** Shabbat start and end date and time, and sets them as attributes within a created sensor.</br>
 The component can create multiple sensors for multiple cities around the world, the selected city is identified by its geoname which can selected [here](https://github.com/hebcal/dotcom/blob/master/hebcal.com/dist/cities2.txt).
 
