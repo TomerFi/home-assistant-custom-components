@@ -4,6 +4,8 @@
 **Domain Name** : `sensor`</br>
 **Component Script** : [`custom_components/sensor/broadlink_s1c.py`](custom_components/sensor/broadlink_s1c.py)</br>
 
+[Community Discussion](https://community.home-assistant.io/t/broadlink-s1c-alarm-kit-custom-sensor-component/45980)</br>
+
 #### Component Description
 Home Assistant Custom Component for integration with [Broadlink S1C Alarm Kit](http://www.ibroadlink.com/s1c/).</br>
 S1C Alarm Kit is a alarm system made by Broadlink, it's made of a Hub which can control up to 16 designated devices:
