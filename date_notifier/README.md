@@ -36,8 +36,7 @@ The type of reminder is decided based on the configuration variables.</br>
 # Example configuration.yaml
 
 date_notifier:
-# One Time Reminder will be send 1 day before the event date, on date 2017-11-19 at 21:25
-  one_time_reminder:
+  one_time_reminder1: # One Time Reminder will be send 1 day before the event date, on date 2017-11-19 at 21:25
     name: "one-time test"
     hour: 21
     minute: 25
@@ -47,9 +46,7 @@ date_notifier:
     message: "one-time test"
     days_notice: 1
     notifier: "ios_tomers_iphone6s"
-
-# Yearly Reminder will be send 2 days before the event date every year, on November 19th at 21:26
-  yearly_reminder:
+  yearly_reminder: # Yearly Reminder will be send 2 days before the event date every year, on November 19th at 21:26
     name: "yearly test"
     hour: 21
     minute: 26
@@ -58,18 +55,14 @@ date_notifier:
     message: "yearly test"
     days_notice: 2
     notifier: "ios_tomers_iphone6s"
-
-# Monthly Reminder will be send on the 19th of every month at 21:27
-  monthly_reminder:
+  monthly_reminder: # Monthly Reminder will be send on the 19th of every month at 21:27
     name: "montly test"
     hour: 21
     minute: 27
     day: 19
     message: "montly test2"
     notifier: "ios_tomers_iphone6s"
-  
-# Daily Reminder will be send every day at 21:28
-  daily_reminder:
+  daily_reminder: # Daily Reminder will be send every day at 21:28
     name: "daily test"
     hour: 21
     minute: 28
