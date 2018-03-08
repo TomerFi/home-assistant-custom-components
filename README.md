@@ -26,7 +26,7 @@ To create a `domain` you can either save your `*.py` file in the root folder or 
 To create a `platform` for an existing domain, you create a folder named exactly like the `domain` you wrote the platform for and place your `*.py*` inside.</br>
 
 Here is an example of the folder structure:
-- HA configuration folder/
+- `HA configuration folder/
   - custom_components/
     - *my_first_custom_domain.py*
 	- my_second_custom_domain/
@@ -34,7 +34,7 @@ Here is an example of the folder structure:
 	- sensor/
 	  - *my_custom_sensor_platform.py*
 	- switch/
-	  - *my_custom_switch_platform.py*</br>
+	  - *my_custom_switch_platform.py*</br>`
 	  
 If you want to build your own components or maybe help improve some of mine,</br>
 All you need to know in order to start doing so is in [this guide](https://home-assistant.io/developers/creating_components/).</br>
