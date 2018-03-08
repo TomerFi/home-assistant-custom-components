@@ -1,6 +1,6 @@
 # Home Assistant Custom Components
 
-This repository contains various Custom Components I've made for the use with [Home Assistant](https://home-assistant.io/).</br>
+This repository contains various Custom Components I've made for use with [Home Assistant](https://home-assistant.io/).</br>
 
 My current developing environment is HassIO 0.63.3.</br>
 
@@ -29,11 +29,11 @@ Here is an example of the folder structure:
 - HA configuration folder/
   - custom_components/
     - *my_first_custom_domain.py*
-	- my_second_custom_domain
+	- my_second_custom_domain/
 	  - *__init__.py*
-	- sensor
+	- sensor/
 	  - *my_custom_sensor_platform.py*
-	- switch
+	- switch/
 	  - *my_custom_switch_platform.py*</br>
 	  
 If you want to build your own components or maybe help improve some of mine,</br>
