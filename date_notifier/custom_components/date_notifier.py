@@ -1,3 +1,49 @@
+"""////////////////////////////////////////////////////////////////////////////////////////////////
+Home Assistant Custom Component for creating daily, monthly or yearly reminders. Works as a Domain.
+Build by TomerFi
+Please visit https://github.com/TomerFi/home-assistant-custom-components for more custom components
+
+installation notes:
+place this file in the following folder and restart home assistant:
+/config/custom_components
+
+yaml configuration examples:
+
+date_notifier:
+  one_time_reminder1: # One Time Reminder will be send 1 day before the event date, on date 2017-11-19 at 21:25
+    name: "one-time test"
+    hour: 21
+    minute: 25
+    day: 20
+    month: 11
+    year: 2017
+    message: "one-time test"
+    days_notice: 1
+    notifier: "ios_tomers_iphone6s"
+  yearly_reminder1: # Yearly Reminder will be send 2 days before the event date every year, on November 19th at 21:26
+    name: "yearly test"
+    hour: 21
+    minute: 26
+    day: 21
+    month: 11
+    message: "yearly test"
+    days_notice: 2
+    notifier: "ios_tomers_iphone6s"
+  monthly_reminder1: # Monthly Reminder will be send on the 19th of every month at 21:27
+    name: "montly test"
+    hour: 21
+    minute: 27
+    day: 19
+    message: "montly test2"
+    notifier: "ios_tomers_iphone6s"
+  daily_reminder1: # Daily Reminder will be send every day at 21:28
+    name: "daily test"
+    hour: 21
+    minute: 28
+    message: "daily test"
+    notifier: "ios_tomers_iphone6s"
+
+////////////////////////////////////////////////////////////////////////////////////////////////"""
 import asyncio
 import logging
 import json

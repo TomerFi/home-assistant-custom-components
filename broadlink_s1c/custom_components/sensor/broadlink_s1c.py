@@ -3,8 +3,6 @@ Home Assistant Custom Component for Broadlink S1C Alarm kit integration as a Sen
 Build by TomerFi
 Please visit https://github.com/TomerFi/home-assistant-custom-components for more custom components
 
-Tested in HassIO 0.63.3 for Door Sensors, Motion Sensors and Key Fobs
-
 if error occures, raise the log level to debug mode and analyze the logs:
                     custom_components.sensor.broadlink_s1c: debug
 
@@ -13,6 +11,7 @@ place this file in the following folder and restart home assistant:
 /config/custom_components/sensor
 
 yaml configuration example:
+
 sensor:
   - platform: broadlink_s1c
     ip_address: "xxx.xxx.xxx.xxx" # set your s1c hub local ip address

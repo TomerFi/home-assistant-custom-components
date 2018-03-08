@@ -1,3 +1,25 @@
+"""////////////////////////////////////////////////////////////////////////////////////////////////
+Home Assistant Custom Component for turning on/off the SwitcherV2 water heater.
+Build by TomerFi
+Please visit https://github.com/TomerFi/home-assistant-custom-components for more custom components
+
+installation notes:
+place this file in the following folder and restart home assistant:
+/config/custom_components/switch
+
+yaml configuration example:
+
+switch:
+  - platform: switcher_heater
+    switches:
+      device1:
+        friendly_name: "heater_switch"
+        local_ip_addr: 'XXX.XXX.XXX.XXX'
+        phone_id: 'XXXX'
+        device_id: 'XXXXXX'
+        device_password: 'XXXXXXXX'
+
+////////////////////////////////////////////////////////////////////////////////////////////////"""
 import asyncio
 import logging
 

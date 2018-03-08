@@ -1,3 +1,18 @@
+"""////////////////////////////////////////////////////////////////////////////////////////////////
+Home Assistant Custom Component for following the jewish shabbat times as a Sensor platform.
+Build by TomerFi
+Please visit https://github.com/TomerFi/home-assistant-custom-components for more custom components
+
+installation notes:
+place this file in the following folder and restart home assistant:
+/config/custom_components/sensor
+
+yaml configuration example:
+sensor:
+  - platform: shabbat_times
+    geonames: "IL-Haifa,IL-Rishon LeZion"
+
+////////////////////////////////////////////////////////////////////////////////////////////////"""
 import datetime
 import logging
 import json
