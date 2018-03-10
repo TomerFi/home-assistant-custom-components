@@ -26,7 +26,6 @@ import asyncio
 import traceback
 import json
 import threading
-import broadlink
 
 import voluptuous as vol
 
@@ -169,6 +168,7 @@ class HubConnection(object):
     """s1c hub connection and utility class"""
     def __init__(self, ip_addr, mac_addr, timeout):
         """initialize the connection object"""
+        import broadlink
         self._hub = broadlink.S1C((ip_addr, 80), mac_addr)
         self._hub.timeout = timeout
         self._authorized = self.authorize()
@@ -271,7 +271,7 @@ class WatchSensors(threading.Thread):
 
     def check_loop_run(self):
         """max exceptions allowed in loop before exiting"""
-        max_exceptions_before_stop = 10
+        max_exceptions_before_stop = 50
         """max minutes to remmember the last excption"""
         max_minutes_from_last_exception = 1
         
