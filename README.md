@@ -6,13 +6,13 @@ My current developing environment is HassIO 0.63.3.</br>
 
 ## My Custom Components TOC
 - Domains
-  - [date_notifier](/date_notifier/README.md) for managing yearly, monthly, daily and one time reminders and notifications.
+  - [date_notifier](/date_notifier) for managing yearly, monthly, daily and one time reminders and notifications.
 - Platforms
   - switch
-    - [switcher_heater](switcher_heater/README.md) for controlling your Switcher V2 device.
+    - [switcher_heater](/switcher_heater) for controlling your Switcher V2 device.
   - sensor
-    - [shabbat_times](shabbat_times/README.md) for retrieving the Jewish Shabbat times from [hebcal](https://www.hebcal.com/).
-	- [broadlink_s1c](broadlink_s1c/README.md) for integration with Broadlink's S1C Alarm Kit sensors.
+    - [shabbat_times](/shabbat_times) for retrieving the Jewish Shabbat times from [hebcal](https://www.hebcal.com/).
+	- [broadlink_s1c](/broadlink_s1c) for integration with Broadlink's S1C Alarm Kit sensors.
 
 ## How do Custom Comoponents work in Home Assistant
 There are two types of custom components for Home Assistant:</br>
