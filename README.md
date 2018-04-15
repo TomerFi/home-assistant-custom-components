@@ -7,6 +7,7 @@ My current developing environment is HassIO 0.63.3.</br>
 ## My Custom Components TOC
 - Domains
   - [date_notifier](/date_notifier) for managing yearly, monthly, daily and one time reminders and notifications.
+  - [switcher_aio](/switcher_aio) for a full integration with the Switcher v2 Water Heater.
 - Platforms
   - switch
     - [switcher_heater](/switcher_heater) for controlling your Switcher V2 device.
