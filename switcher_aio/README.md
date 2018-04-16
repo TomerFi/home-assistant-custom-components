@@ -3,7 +3,8 @@
 **Domain Name** : `switcher_aio`</br>
 **Component Script** : [`custom_components/switcher_aio`](custom_components/switcher_aio)</br>
 
-[Community Discussion](https://community.home-assistant.io/t/switcher-v2-boiler-support-in-home-assistant/44318)</br>
+[Video Tutorial](https://youtu.be/NbxRCARx168)</br>
+[Community Discussion](https://community.home-assistant.io/t/switcher-v2-all-in-one-full-control/50652)</br>
 
 #### Component Description
 This custom component is based on the awesome script made available by **NightRang3r** and **AviadGolan**, you can find the original script and the instruction on how to retrieve your device's information in Shai's repository [here](https://github.com/NightRang3r/Switcher-V2-Python).</br>
