@@ -1244,7 +1244,6 @@ def async_setup(hass, config):
             "{% elif is_state('" + select_schedule_saturday.entity_id + "', '" + STATE_ON + "') %}true" +
             "{% else %}false{% endif%}", hass)
 
-
         create_schedule_days_template = template_helper.Template("{% set days_string = '' %}" +
             "{% if is_state('" + select_schedule_sunday.entity_id + "', '" + STATE_ON + "') %}{% set days_string = days_string + '" + SUNDAY + ",' %}{% endif %}" +
             "{% if is_state('" + select_schedule_monday.entity_id + "', '" + STATE_ON + "') %}{% set days_string = days_string + '" + MONDAY + ",' %}{% endif %}" +
@@ -1252,8 +1251,8 @@ def async_setup(hass, config):
             "{% if is_state('" + select_schedule_wednesday.entity_id + "', '" + STATE_ON + "') %}{% set days_string = days_string + '" + WEDNESDAY + ",' %}{% endif %}" +
             "{% if is_state('" + select_schedule_thursday.entity_id + "', '" + STATE_ON + "') %}{% set days_string = days_string + '" + THURSDAY + ",' %}{% endif %}" +
             "{% if is_state('" + select_schedule_friday.entity_id + "', '" + STATE_ON + "') %}{% set days_string = days_string + '" + FRIDAY + ",' %}{% endif %}" +
-            "{% if is_state('" + select_schedule_saturday.entity_id + "', '" + STATE_ON + "') %}{% set days_string = days_string + '" + SATURDAY + ",' %}}{% endif %}" +
-            "{{ days_string[:-1] }}", hass)
+            "{% if is_state('" + select_schedule_saturday.entity_id + "', '" + STATE_ON + "') %}{% set days_string = days_string + '" + SATURDAY + ",' %}{% endif %}" +
+            "{% if days_string | length > 1 %}{{ days_string[:-1] }}{% endif %}", hass)
 
         """Create the script config schemas"""
         auto_off_config_data = {
