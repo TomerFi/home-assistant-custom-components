@@ -3,7 +3,7 @@
 **Domain Name** : `switcher_aio`</br>
 **Component Script** : [`custom_components/switcher_aio`](custom_components/switcher_aio)</br>
 
-[Video Tutorial](https://youtu.be/NbxRCARx168)</br>
+[Video Tutorial](https://www.youtube.com/watch?v=_ZENb42xPXk)</br>
 [Community Discussion](https://community.home-assistant.io/t/switcher-v2-all-in-one-full-control/50652)</br>
 
 #### Component Description
