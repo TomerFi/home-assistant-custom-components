@@ -32,7 +32,7 @@ So, let's get to it! ;-)</br>
 - [Credits](#credits)
 
 ## Requirements
-- **Home Assistant version 0.63 or higher**.
+- **Home Assistant version 0.67.1 or higher**.
 - Your S1C Hub needs to have a **Static IP Address** reserved by your router.
 
 ## Installation
