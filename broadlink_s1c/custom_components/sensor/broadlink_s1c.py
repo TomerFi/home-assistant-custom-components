@@ -39,7 +39,9 @@ from homeassistant.util.dt import now
 """current broadlink moudle in ha is of version 0.5 which doesn't supports s1c hubs, usuing version 0.6 from github"""
 # REQUIREMENTS = ['https://github.com/mjg59/python-broadlink/archive/master.zip#broadlink==0.6']
 """one of the broadlink 0.6 requirements is the pycrypto library which is blocked ever since HA 0.64.0, my forked repository of python-broadlink is working with its replacement pycryptodome"""
-REQUIREMENTS = ['https://github.com/TomerFi/python-broadlink/archive/master.zip#broadlink==0.6']
+# REQUIREMENTS = ['https://github.com/TomerFi/python-broadlink/archive/master.zip#broadlink==0.6']
+"""home assistant 0.67.1 is using broadlink 0.8 so there is no need for special requirements"""
+REQUIREMENTS = []
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -169,7 +171,7 @@ class HubConnection(object):
     def __init__(self, ip_addr, mac_addr, timeout):
         """initialize the connection object"""
         import broadlink
-        self._hub = broadlink.S1C((ip_addr, 80), mac_addr)
+        self._hub = broadlink.S1C((ip_addr, 80), mac_addr, None)
         self._hub.timeout = timeout
         self._authorized = self.authorize()
         if (self._authorized):
