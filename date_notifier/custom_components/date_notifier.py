@@ -1,4 +1,4 @@
-"""////////////////////////////////////////////////////////////////////////////////////////////////
+"""////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 Home Assistant Custom Component for creating daily, monthly or yearly reminders. Works as a Domain.
 Build by TomerFi
 Please visit https://github.com/TomerFi/home-assistant-custom-components for more custom components
@@ -43,7 +43,9 @@ date_notifier:
     message: "daily test"
     notifier: "ios_tomers_iphone6s"
 
-////////////////////////////////////////////////////////////////////////////////////////////////"""
+    you can add countdown: true to non-daily reminders for getting a notification for each day from the max days_notice to the current day.
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////"""
 import asyncio
 import logging
 import json
@@ -52,15 +54,15 @@ import datetime
 import voluptuous as vol
 
 from homeassistant.helpers import config_validation as cv
-from homeassistant.helpers.entity import Entity
+from homeassistant.helpers.entity import Entity, async_generate_entity_id
 from homeassistant.helpers.entity_component import EntityComponent
-from homeassistant.helpers.restore_state import async_get_last_state
 from homeassistant.core import callback
 from homeassistant.helpers.event import async_track_time_interval
+from homeassistant.components.notify import DOMAIN as NOTIFY_DOMAIN
 
 _LOGGER = logging.getLogger(__name__)
 
-DEPENDENCIES = ['notify']
+DEPENDENCIES = [NOTIFY_DOMAIN]
 
 DOMAIN = 'date_notifier'
 ENTITY_ID_FORMAT = DOMAIN + '.{}'
@@ -78,6 +80,12 @@ DAYS_NOTICE_DEFAULT = 0
 NOTIFIER = 'notifier'
 COUNTDOWN = 'countdown'
 COUNTDOWN_DEFAULT = False
+
+ATTR_PAST_DUE = "past_due"
+ATTR_DAILY = "daily"
+ATTR_MONTHLY = "monthly"
+ATTR_YEARLY = "yearly"
+ATTR_ON_DATE = "on_date"
 
 RECURRENCE = 'recurrence'
 INTERVAL = datetime.timedelta(minutes=1)
@@ -107,7 +115,7 @@ def async_setup(hass, config):
 
     entities = []
 
-    for name, config in config[DOMAIN].items():
+    for slug, config in config[DOMAIN].items():
         if not config:
             config = {}
 
@@ -119,31 +127,31 @@ def async_setup(hass, config):
         year = None
         message = config.get(MESSAGE)
         days_notice = config.get(DAYS_NOTICE)
-        notifier = config.get(NOTIFIER).replace('notify.', '')
+        notifier = config.get(NOTIFIER).replace(NOTIFY_DOMAIN + '.', '')
         countdown = config.get(COUNTDOWN)
-        recurrence = 'daily'
+        recurrence = ATTR_DAILY
         if config.get(DAY):
             day = config.get(DAY)
-            recurrence = 'monthly'
+            recurrence = ATTR_MONTHLY
         if config.get(MONTH):
             month = config.get(MONTH)
-            recurrence = 'yearly'
+            recurrence = ATTR_YEARLY
         if config.get(YEAR):
             year = config.get(YEAR)
             calc_date = datetime.datetime.now().replace(second=0, microsecond=0)
             reminder_set = datetime.datetime.strptime(str(year) + '-' + str(month) + '-' + str(day) + ' ' + str(hour) + ':' + str(minute), '%Y-%m-%d %H:%M') + datetime.timedelta(-days_notice)
             if calc_date > reminder_set:
-                recurrence = 'past_due'
+                recurrence = ATTR_PAST_DUE
             else:
-                recurrence = 'on_date'
+                recurrence = ATTR_ON_DATE
 
-        entities.append(DateNotifier(name, hour, minute, day, month, year, message, days_notice, notifier, recurrence, countdown))
+        entities.append(DateNotifier(hass, slug, name, hour, minute, day, month, year, message, days_notice, notifier, recurrence, countdown))
 
     @asyncio.coroutine
     def async_scan_dates_service(call):
         for entity in component.entities:
             target_notifiers = [entity]
-            tasks = [notifier.async_scan_dates() for notifier in target_notifiers]
+            tasks = [notifier.scan_dates() for notifier in target_notifiers]
             if tasks:
                 yield from asyncio.wait(tasks, loop=hass.loop)
             else:
@@ -157,8 +165,9 @@ def async_setup(hass, config):
 
 class DateNotifier(Entity):
 
-    def __init__(self, name, hour, minute, day, month, year, message, days_notice, notifier, recurrence, countdown):
-        self.entity_id = ENTITY_ID_FORMAT.format(name.replace('-', '').replace(' ', '_'))
+    def __init__(self, hass, slug, name, hour, minute, day, month, year, message, days_notice, notifier, recurrence, countdown):
+        self.hass = hass
+        self.entity_id = async_generate_entity_id(ENTITY_ID_FORMAT, slug, hass=hass)
         self._name = name
         self._hour = hour
         self._minute = minute
@@ -170,12 +179,13 @@ class DateNotifier(Entity):
         self._year = year
         self._recurrence = recurrence
         self._countdown = countdown
-
-    @asyncio.coroutine
-    def async_added_to_hass(self):
-        state = yield from async_get_last_state(self.hass, self.entity_id)
-        if state:
-            self._value = state.state
+        self._dates_list = []
+        if self._recurrence != ATTR_PAST_DUE:
+            if self._countdown and self._days_notice > 0:
+                for i in range(0, self._days_notice + 1):
+                    self._dates_list.append(self.create_due_date(i))
+            else:
+                self._dates_list.append(self.create_due_date(self._days_notice))
 
     @property
     def should_poll(self):
@@ -183,7 +193,7 @@ class DateNotifier(Entity):
 
     @property
     def name(self):
-        return None
+        return self._name
 
     @property
     def state(self):
@@ -191,83 +201,63 @@ class DateNotifier(Entity):
 
     @property
     def state_attributes(self):
-        if self._recurrence == 'daily':
-            return{
-                NAME: self._name,
-                HOUR: self._hour,
-                MINUTE: self._minute,
-                MESSAGE: self._message,
-                NOTIFIER: self._notifier,
-                RECURRENCE: self._recurrence,
-                COUNTDOWN: self._countdown
-            }
-        elif self._recurrence == 'monthly':
-            return{
-                NAME: self._name,
-                HOUR: self._hour,
-                MINUTE: self._minute,
-                DAY: self._day,
-                MESSAGE: self._message,
-                DAYS_NOTICE: self._days_notice,
-                NOTIFIER: self._notifier,
-                RECURRENCE: self._recurrence,
-                COUNTDOWN: self._countdown
-            }
-        elif self._recurrence == 'yearly':
-            return{
-                NAME: self._name,
-                HOUR: self._hour,
-                MINUTE: self._minute,
-                DAY: self._day,
-                MONTH: self._month,
-                MESSAGE: self._message,
-                DAYS_NOTICE: self._days_notice,
-                NOTIFIER: self._notifier,
-                RECURRENCE: self._recurrence,
-                COUNTDOWN: self._countdown
-            }
-        else:
-            return{
-                NAME: self._name,
-                HOUR: self._hour,
-                MINUTE: self._minute,
-                DAY: self._day,
-                MONTH: self._month,
-                YEAR: self._year,
-                MESSAGE: self._message,
-                DAYS_NOTICE: self._days_notice,
-                NOTIFIER: self._notifier,
-                RECURRENCE: self._recurrence,
-                COUNTDOWN: self._countdown
-            }
+        attribs = {
+            HOUR: self._hour,
+            MINUTE: self._minute,
+            MESSAGE: self._message,
+            NOTIFIER: self._notifier,
+            RECURRENCE: self._recurrence,
+            COUNTDOWN: self._countdown
+        }
+        if self._recurrence == ATTR_MONTHLY:
+            attribs[DAY] =  self._day
+            attribs[DAYS_NOTICE] = self._days_notice
+        elif self._recurrence == ATTR_YEARLY:
+            attribs[DAY] = self._day
+            attribs[MONTH] = self._month
+            attribs[DAYS_NOTICE] = self._days_notice
+        elif self._recurrence == ATTR_ON_DATE:
+            attribs[DAY] = self._day
+            attribs[MONTH] = self._month
+            attribs[YEAR] = self._year
+            attribs[DAYS_NOTICE] = self._days_notice
+        return attribs
 
     @callback
-    def async_scan_dates(self):
+    def create_due_date(self, days_notice):
+        calc_date = datetime.datetime.now()
+        reminder_set = None
+        _days_notice = days_notice
+        if self._recurrence == ATTR_ON_DATE:
+            reminder_set = datetime.datetime.strptime(str(self._year) + '-' + str(self._month) + '-' + str(self._day) + ' ' + str(self._hour) + ':' + str(self._minute), '%Y-%m-%d %H:%M') + datetime.timedelta(-days_notice)
+            if calc_date >= reminder_set:
+                self._recurrence = ATTR_PAST_DUE
+        elif self._recurrence == ATTR_YEARLY:
+            reminder_set = datetime.datetime.strptime(str(calc_date.year) + '-' + str(self._month) + '-' + str(self._day) + ' ' + str(self._hour) + ':' + str(self._minute), '%Y-%m-%d %H:%M') + datetime.timedelta(-days_notice)
+        elif self._recurrence == ATTR_MONTHLY:
+            reminder_set = datetime.datetime.strptime(str(calc_date.year) + '-' + str(calc_date.month) + '-' + str(self._day) + ' ' + str(self._hour) + ':' + str(self._minute), '%Y-%m-%d %H:%M') + datetime.timedelta(-days_notice)
+        elif self._recurrence == ATTR_DAILY:
+            reminder_set = datetime.datetime.strptime(str(calc_date.year) + '-' + str(calc_date.month) + '-' + str(calc_date.day) + ' ' + str(self._hour) + ':' + str(self._minute), '%Y-%m-%d %H:%M')
+            _days_notice = 0
 
+        return (reminder_set, _days_notice)
+
+    @callback
+    def scan_dates(self):
         calc_date = datetime.datetime.now().replace(second=0, microsecond=0)
-
-        if self._recurrence.lower() != 'past_due':
-            days_notice = self._days_notice
-            if self._recurrence == 'on_date':
-                reminder_set = datetime.datetime.strptime(str(self._year) + '-' + str(self._month) + '-' + str(self._day) + ' ' + str(self._hour) + ':' + str(self._minute), '%Y-%m-%d %H:%M') + datetime.timedelta(-days_notice)
-                if calc_date >= reminder_set:
-                    self._recurrence = 'past_due'
-            elif self._recurrence == 'yearly':
-                reminder_set = datetime.datetime.strptime(str(calc_date.year) + '-' + str(self._month) + '-' + str(self._day) + ' ' + str(self._hour) + ':' + str(self._minute), '%Y-%m-%d %H:%M') + datetime.timedelta(-days_notice)
-            elif self._recurrence == 'monthly':
-                reminder_set = datetime.datetime.strptime(str(calc_date.year) + '-' + str(calc_date.month) + '-' + str(self._day) + ' ' + str(self._hour) + ':' + str(self._minute), '%Y-%m-%d %H:%M') + datetime.timedelta(-days_notice)
-            elif self._recurrence == 'daily':
-                days_notice = 0
-                reminder_set = datetime.datetime.strptime(str(calc_date.year) + '-' + str(calc_date.month) + '-' + str(calc_date.day) + ' ' + str(self._hour) + ':' + str(self._minute), '%Y-%m-%d %H:%M')
-
-            if calc_date == reminder_set:
-                message = self._message
-                if days_notice == 0:
-                    message = message + ' is due today.'
-                elif days_notice == 1:
-                    message = message + ' is due tommorow.'
-                else:
-                    message = message + ' is due in ' + str(days_notice) + ' days.'
-                service_data = {"title": "DateNotifier", "message": message}
-                self.hass.async_add_job(self.hass.services.async_call('notify', self._notifier, service_data=service_data, blocking=False))
-                yield from self.async_update_ha_state()
+        if self._recurrence != ATTR_PAST_DUE:
+            for reminder_set, days_notice in self._dates_list:
+                if self._recurrence == ATTR_ON_DATE and calc_date >= reminder_set:
+                    self._recurrence = ATTR_PAST_DUE
+                if calc_date == reminder_set:
+                    message = self._message
+                    if days_notice == 0:
+                        message = message + ' is due today.'
+                    elif days_notice == 1:
+                        message = message + ' is due tommorow.'
+                    else:
+                        message = message + ' is due in ' + str(days_notice) + ' days.'
+                    service_data = {"title": "DateNotifier", "message": message}
+                    self.hass.async_add_job(self.hass.services.async_call(NOTIFY_DOMAIN, self._notifier, service_data=service_data, blocking=False))
+                    yield from self.async_update_ha_state()
+                    break
