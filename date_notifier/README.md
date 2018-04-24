@@ -48,7 +48,7 @@ date_notifier:
     message: "one-time test"
     days_notice: 1
     notifier: "ios_tomers_iphone6s"
-  yearly_reminder: # Yearly Reminder will be send 2 days before the event date every year, on November 19th at 21:26
+  yearly_reminder: # Yearly Reminder will be send every day starting 2 days before the event date and the event date, every year, on November 19th at 21:26
     name: "yearly test"
     hour: 21
     minute: 26
@@ -57,6 +57,7 @@ date_notifier:
     message: "yearly test"
     days_notice: 2
     notifier: "ios_tomers_iphone6s"
+    countdown: true
   monthly_reminder: # Monthly Reminder will be send on the 19th of every month at 21:27
     name: "montly test"
     hour: 21
@@ -91,6 +92,7 @@ date_notifier:
 
 **The following configuration variable is optional and eligible when configuring a monthly, yearly or one time reminders:**
 - **days_notice** (*Optional*): A **positive integer** representing the number of days before the date in which the notification will be send. (default = 0)
+- **countdown** (*Optional*): A **boolean value**, if true multiple reminders will be send every day starting the the `days_notice` timedelta and ending on the day of the event, **Not relevant for daily reminders**. (default = false)
 
 ## States
 Each reminder will create it's own entity with the configuration variables as state attributes, there are five potential states:
