@@ -526,7 +526,7 @@ def convert_seconds_to_iso_time(all_seconds):
     try:
         minutes, seconds = divmod(int(all_seconds), 60)
         hours, minutes = divmod(minutes, 60)
-        return datetime.time(hour=hours, minute=minutes, second=seconds).isoformat(timespec='auto')
+        return datetime.time(hour=hours, minute=minutes, second=seconds).isoformat()
     except Exception:
         _LOGGER.exception('failed to create iso time from ' + str(all_seconds) + ' seconds')
         raise
