@@ -266,7 +266,7 @@ class WatchSensors(threading.Thread):
                         self.launch_state_change_event(sensor["name"], current_fixed_status)
                         old_status = current_status
             except:
-                _LOGGER.exception("exception while getting sensors status: " + traceback.format_exc())
+                _LOGGER.warning("exception while getting sensors status: " + traceback.format_exc())
                 self.check_loop_run()
                 continue
         _LOGGER.info("sensors watch done")
