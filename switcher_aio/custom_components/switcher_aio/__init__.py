@@ -1004,7 +1004,7 @@ def async_setup(hass, config):
         @asyncio.coroutine
         def async_switcher_control(service):
             """Function to handle turn on, off and on with timer service calls"""
-            _LOGGER.debug("received: " + service.service + " with call id: " + service.call_id)
+            _LOGGER.debug("received: " + service.service)
             if service.service in [SERVICE_TURN_ON, SERVICE_TURN_OFF]:
                 if service.service == SERVICE_TURN_ON:
                     func_name = "async_turn_on"
@@ -1020,14 +1020,14 @@ def async_setup(hass, config):
         @asyncio.coroutine
         def async_set_auto_off_service(service):
             """Function to handle set auto off service calls"""
-            _LOGGER.debug("received: " + service.service + " with call id: " + service.call_id + " value passed is: " + str(service.data[CONF_AUTO_OFF]))
+            _LOGGER.debug("received: " + service.service + " value passed is: " + str(service.data[CONF_AUTO_OFF]))
             device = switcher_conn.get_device()
             yield from async_set_auto_off_to_device(device.ip, device.phone_id, device.device_id, device.device_password, service.data[CONF_AUTO_OFF])
 
         @asyncio.coroutine
         def async_update_device_name_service(service):
             """Function to handle update device name service calls"""
-            _LOGGER.debug("received: " + service.service + " with call id: " + service.call_id + " value passed is: " + service.data[CONF_NAME])
+            _LOGGER.debug("received: " + service.service + " value passed is: " + service.data[CONF_NAME])
             device = switcher_conn.get_device()
             yield from async_update_name_of_device(device.ip, device.phone_id, device.device_id, device.device_password, service.data[CONF_NAME])
 
@@ -1086,7 +1086,7 @@ def async_setup(hass, config):
         def async_manage_schedules_service(service):
             """Function to handle schedule managment (enable, disable, delete)"""
             schedule_id = service.data[CONF_SCHEDULE_ID]
-            _LOGGER.debug("received: " + service.service + " with call id: " + service.call_id + " value passed is: " + str(schedule_id))
+            _LOGGER.debug("received: " + service.service + " value passed is: " + str(schedule_id))
             if service.service == SERVICE_ENABLE_SCHEDULE:
                 func_name = "async_enable"
             elif service.service == SERVICE_DISABLE_SCHEDULE:
@@ -1116,7 +1116,7 @@ def async_setup(hass, config):
         @asyncio.coroutine
         def async_create_schedule_service(service):
             """Function to handle create schedule"""
-            _LOGGER.debug("received: " + service.service + " with call id: " + service.call_id + " values passed are: " + str(service.data))
+            _LOGGER.debug("received: " + service.service + " values passed are: " + str(service.data))
             if service.data[CONF_RECURRING] and not service.data[CONF_DAYS]:
                 _LOGGER.error("wrong parameters passed, if schedule is recursive it must contain a list of days to run at")
             else:
