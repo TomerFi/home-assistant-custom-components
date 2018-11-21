@@ -142,8 +142,8 @@ class S1C_SENSOR(Entity):
             return SENSOR_TYPE_DOOR_SENSOR_ICON
         elif (self._sensor_type == SENSOR_TYPE_KEY_FOB):
             return SENSOR_TYPE_KEY_FOB_ICON
-        elif (self._sensor_type == SENSOR_TYPE_KEY_FOB):
-            return SENSOR_TYPE_KEY_FOB_ICON
+        elif (self._sensor_type == SENSOR_TYPE_MOTION_SENSOR):
+            return SENSOR_TYPE_MOTION_SENSOR_ICON
         else:
             return SENSOR_DEFAULT_ICON
 
