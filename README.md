@@ -2,7 +2,7 @@
 
 This repository contains various Custom Components I've made for use with [Home Assistant](https://home-assistant.io/).</br>
 
-My current developing environment is HassIO 0.65.5.</br>
+My current developing environment is Home Assistant 0.81.2.</br>
 
 ## My Custom Components TOC
 - Domains
