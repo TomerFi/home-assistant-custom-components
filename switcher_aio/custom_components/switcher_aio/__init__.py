@@ -47,7 +47,7 @@ import threading
 import voluptuous as vol
 
 from homeassistant.core import callback
-from homeassistant.const import (EVENT_HOMEASSISTANT_STOP, EVENT_CALL_SERVICE, EVENT_SERVICE_EXECUTED, EVENT_SERVICE_REGISTERED, STATE_ON, STATE_OFF, ATTR_SERVICE, 
+from homeassistant.const import (EVENT_HOMEASSISTANT_STOP, EVENT_CALL_SERVICE, EVENT_SERVICE_REGISTERED, STATE_ON, STATE_OFF, ATTR_SERVICE, 
     CONF_IP_ADDRESS, CONF_DEVICE, CONF_NAME, CONF_TYPE, SERVICE_TURN_ON, SERVICE_TURN_OFF, SERVICE_TOGGLE, CONF_ENTITY_ID, ATTR_HIDDEN , CONF_ICON)
 from homeassistant.loader import bind_hass
 
@@ -55,7 +55,7 @@ from homeassistant.helpers.script import Script
 import homeassistant.helpers.config_validation as cv
 import homeassistant.helpers.template as template_helper
 from homeassistant.helpers.entity import Entity, async_generate_entity_id, ToggleEntity
-from homeassistant.helpers.restore_state import async_get_last_state
+from homeassistant.helpers.restore_state import RestoreEntity
 from homeassistant.helpers.event import async_track_time_interval
 
 from homeassistant.components.input_number import (MODE_SLIDER, ATTR_VALUE, ATTR_MIN, ATTR_MAX, ATTR_STEP, ATTR_MODE, SERVICE_SET_VALUE,
@@ -2491,7 +2491,7 @@ class SwitcherScript(ToggleEntity):
         self.script.async_stop()
 
 
-class SwitcherSelect(Entity):
+class SwitcherSelect(RestoreEntity):
     """Representation of the input_select entity"""
     def __init__(self, hass, slug_id, name, options, entity_config, initial=None):
         """Initialize a select input."""
@@ -2511,10 +2511,9 @@ class SwitcherSelect(Entity):
         else:
             self._current_option = initial
 
-    @asyncio.coroutine
-    def async_get_last_state_from_hass(self):
+    async def async_get_last_state_from_hass(self):
         """get_last_state_from_hass"""
-        state = yield from async_get_last_state(self.hass, self.entity_id)
+        state = await self.async_get_last_state()
         if not state:
             self._current_option = self._options[0]
         else:
