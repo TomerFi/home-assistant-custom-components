@@ -577,7 +577,7 @@ def close_socket_connection(sock, ip_addr):
         sock.close()
         _LOGGER.debug('closed socket connection to ' + ip_addr)
     except Exception:
-        _LOGGER.exception('socket to '+ ip_address + ' is not closable')
+        _LOGGER.exception('socket to '+ ip_addr + ' is not closable')
         pass
 
 
