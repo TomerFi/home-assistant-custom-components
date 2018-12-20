@@ -1590,7 +1590,7 @@ class SwitcherV2Device(object):
     @property
     def mac(self):
         """Return the mac address"""
-        return self._mac
+        return self._mac_address
 
     @property
     def name(self):
