@@ -1,7 +1,7 @@
 # Date Notifier
 **Component Type** : `domain`</br>
 **Domain Name** : `date_notifier`</br>
-**Component Script** : [`custom_components/date_notifier.py`](custom_components/date_notifier.py)</br>
+**Component Script** : [`custom_components/date_notifier`](custom_components/date_notifier)</br>
 
 [Community Discussion](https://community.home-assistant.io/t/custom-component-for-creating-yearly-monthly-daily-and-one-time-reminders/33097)</br>
 
@@ -23,10 +23,11 @@ The **Date Notifier Component** supports four types of reminders:
 - [Special Notes](#special-notes)
 
 ## Requirements
+- **Home Assistant version 0.88.0 or higher**.
 - A configured [**notify component**](https://home-assistant.io/components/notify/).
 
 ## Installation
-- Copy file [`custom_components/date_notifier.py`](custom_components/date_notifier.py) to your `ha_config_dir/custom_components` directory.
+- Copy files [`custom_components/date_notifier`](custom_components/date_notifier) to your `ha_config_dir/custom_components/date_notifier` directory.
 - Configure like instructed in the Configuration section below.
 - Restart Home-Assistant.
 

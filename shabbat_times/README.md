@@ -11,15 +11,19 @@ The component works in a similar manner as the *rest* type sensor, it send an ap
 The component can create multiple sensors for multiple cities around the world, the selected city is identified by its geoname which can selected [here](https://github.com/hebcal/dotcom/blob/master/hebcal.com/dist/cities2.txt).
 
 **Table Of Contents**
+- [Requirements](#requirements)
 - [Installation](#installation)
 - [Configuration](#configuration)
   - [Configuration Keys](#configuration-keys)
 - [States](#states)
 - [Special Notes](#special-notes)
 
+## Requirements
+- **Home Assistant version 0.88.0 or higher**.
+
 ## Installation
 
-- Copy file [`custom_components/sensor/shabbat_times.py`](custom_components/sensor/shabbat_times.py) to your `ha_config_dir/custom_components/sensor` directory.
+- Copy files [`custom_components/shabbat_times`](custom_components/shabbat_times) to your `ha_config_dir/custom_components/shabbat_times` directory.
 - Configure like instructed in the Configuration section below.
 - Restart Home-Assistant.
 

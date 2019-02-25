@@ -2,7 +2,7 @@
 **Component Type** : `platform`</br>
 **Platform Name** : `broadlink_s1c`</br>
 **Domain Name** : `sensor`</br>
-**Component Script** : [`custom_components/sensor/broadlink_s1c.py`](custom_components/sensor/broadlink_s1c.py)</br>
+**Component Script** : [`custom_components/broadlink_s1c`](custom_components/broadlink_s1c)</br>
 
 [Community Discussion](https://community.home-assistant.io/t/broadlink-s1c-alarm-kit-custom-sensor-component/45980)</br>
 
@@ -32,11 +32,11 @@ So, let's get to it! ;-)</br>
 - [Credits](#credits)
 
 ## Requirements
-- **Home Assistant version 0.67.1 or higher**.
+- **Home Assistant version 0.88.0 or higher**.
 - Your S1C Hub needs to have a **Static IP Address** reserved by your router.
 
 ## Installation
-- Copy the file [`custom_components/sensor/broadlink_s1c.py`](custom_components/sensor/broadlink_s1c.py) to your `ha_config_dir/custom_components/sensor` directory.
+- Copy the files [`custom_components/broadlink_s1c`](custom_components/broadlink_s1c) to your `ha_config_dir/custom_components/broadlink_s1c` directory.
 - Configure like instructed in the Configuration section below.
 - Restart Home-Assistant.
 

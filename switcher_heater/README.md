@@ -2,7 +2,7 @@
 **Component Type** : `platform`</br>
 **Platform Name** : `switcher_heater`</br>
 **Domain Name** : `sensor`</br>
-**Component Script** : [`custom_components/switch/switcher_heater.py`](custom_components/switch/switcher_heater.py)</br>
+**Component Script** : [`custom_components/switcher_heater`](custom_components/switcher_heater)</br>
 
 ```
 This is a new version of this component which includes:
@@ -35,7 +35,7 @@ This custom component is based on the awesome script made available by **NightRa
 - [Credits](#credits)
 
 ## Requirements
-- **Home Assistant version 0.62 or higher**.
+- **Home Assistant version 0.88.0 or higher**.
 - Your switcher device needs to have a **Static IP Address** reserved by your router.
 - Please follow [Shai's instructions](https://github.com/NightRang3r/Switcher-V2-Python#requirements) and **gather the following information**:
   - phone_id
@@ -43,7 +43,7 @@ This custom component is based on the awesome script made available by **NightRa
   - device_pass
 
 ## Installation
-- Copy file [`custom_components/switch/switcher_heater.py`](custom_components/switch/switcher_heater.py) to your `ha_config_dir/custom_components/switch` directory.
+- Copy files [`custom_components/switcher_heater`](custom_components/switcher_heater) to your `ha_config_dir/custom_components/switcher_heater` directory.
 - Configure like instructed in the Configuration section below.
 - Restart Home-Assistant.
 

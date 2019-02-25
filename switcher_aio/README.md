@@ -29,7 +29,7 @@ Current functionalities are:
 - [Credits](#credits)
 
 ## Requirements
-- **Home Assistant version 0.62 or higher**.
+- **Home Assistant version 0.88.0 or higher**.
 - Please follow [Shai and Aviad's instructions](https://github.com/NightRang3r/Switcher-V2-Python) and **gather the following information**:
   - phone_id
   - device_id
