@@ -1,4 +1,14 @@
-# Switcher V2 Boiler Switch
+# Switcher V2 Boiler Switch</br>![Maintenance](https://img.shields.io/maintenance/no/2019.svg)
+
+**NOT MAINTAINED!**
+
+I'm no longer maintaining this custom component, you can use the new built in component [switcher_kis](https://www.home-assistant.io/components/switcher_kis/).
+
+You can still use the files :point_up:, if you want.</br>
+These :point_down: are the instructions.
+
+__________________________________________
+
 **Component Type** : `platform`</br>
 **Platform Name** : `switcher_heater`</br>
 **Domain Name** : `sensor`</br>
