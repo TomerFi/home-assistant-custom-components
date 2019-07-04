@@ -1,4 +1,15 @@
-# Shabbat Times Sensor
+# Shabbat Times Sensor</br>![Maintenance](https://img.shields.io/maintenance/no/2019.svg)
+
+**NOT MAINTAINED!**
+
+I'm no longer maintaining this custom component!</br>
+That doesn't mean I don't use is, It just means this repository will not be maintained.
+
+This custom component can be found in [my home assistant configuration](https://github.com/TomerFi/my_home_assistant_configuration).
+
+You can still use the files :point_up:, if you want.</br>
+These :point_down: are the instructions.
+
 **Component Type** : `platform`</br>
 **Platform Name** : `shabbat_times`</br>
 **Domain Name** : `sensor`</br>
