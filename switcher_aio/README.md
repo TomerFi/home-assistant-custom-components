@@ -1,4 +1,14 @@
-# Switcher V2 All-In-One
+# Switcher V2 All-In-One</br>![Maintenance](https://img.shields.io/maintenance/no/2019.svg)
+
+**NOT MAINTAINED!**
+
+I'm no longer maintaining this custom component, you can use the new built in component [switcher_kis](https://www.home-assistant.io/components/switcher_kis/).
+
+You can still use the files :point_up:, if you want.</br>
+These :point_down: are the instructions.
+
+__________________________________________
+
 **Component Type** : `domain`</br>
 **Domain Name** : `switcher_aio`</br>
 **Component Script** : [`custom_components/switcher_aio`](custom_components/switcher_aio)</br>
