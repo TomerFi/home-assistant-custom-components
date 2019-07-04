@@ -1,16 +1,21 @@
-# Home Assistant Custom Components
+# Home Assistant Custom Components</br>![Maintenance](https://img.shields.io/maintenance/no/2019.svg)
 
-This repository contains various Custom Components I've made for use with [Home Assistant](https://home-assistant.io/).</br>
+**NOT MAINTAINED!**
 
-My current developing environment is Home Assistant 0.88.1.</br>
+I'm no longer maintaining this custom components repository!</br>
+That doesn't mean I don't use these components,</br>
+It just means this repository will not be maintained.
+
+Please follow the TOC for further information.</br>
+(you can still use the files :point_up:, if you want)
 
 ## My Custom Components TOC
-- Domains
-  - [date_notifier](/date_notifier) for managing yearly, monthly, daily and one time reminders and notifications.
-  - [switcher_aio](/switcher_aio) for a full integration with the Switcher v2 Water Heater.
+- Components(Integrations)
+  - **date_notifier** can be found in [my home assistant configuration](https://github.com/TomerFi/my_home_assistant_configuration).
+  - **switcher_aio** you can use the built-in component [switcher_kis](https://www.home-assistant.io/components/switcher_kis/).
 - Platforms
   - switch
-    - [switcher_heater](/switcher_heater) for controlling your Switcher V2 device.
+    - **switcher_heater** you can use the built-in component [switcher_kis](https://www.home-assistant.io/components/switcher_kis/).
   - sensor
-    - [shabbat_times](/shabbat_times) for retrieving the Jewish Shabbat times from [hebcal](https://www.hebcal.com/).
-	- [broadlink_s1c](/broadlink_s1c) for integration with Broadlink's S1C Alarm Kit sensors.
+    - **shabbat_times** can be found in [my home assistant configuration](https://github.com/TomerFi/my_home_assistant_configuration).
+    - **broadlink_s1c** can be found in [my home assistant configuration](https://github.com/TomerFi/my_home_assistant_configuration).
