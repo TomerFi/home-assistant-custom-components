@@ -10,6 +10,8 @@ This custom component can be found in [my home assistant configuration](https://
 You can still use the files :point_up:, if you want.</br>
 These :point_down: are the instructions.
 
+__________________________________________
+
 **Component Type** : `domain`</br>
 **Domain Name** : `date_notifier`</br>
 **Component Script** : [`custom_components/date_notifier`](custom_components/date_notifier)</br>
